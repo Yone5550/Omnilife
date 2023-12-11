@@ -5,8 +5,8 @@
         "title": "REST API omnilife2.0",
         "description": "<html><body>Documentacion del proyecto del <b>omnilife2.0</b></body></html>",
         "license": {
-            "name": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
         }
     },
     "host": "localhost:3306",
@@ -36,261 +36,306 @@
             "name": "Red",
             "description": "API para obtener información de la red a la que pertenecemos y como van avanzando los demas compañeros, omnilife2_0"
         }
-    ],
+        ],
     "schemes": [
         "http"
     ],
-    "consumes": [
+    "consumes":[
+        "application/json"
+    ], 
+    "produces" :[
         "application/json"
     ],
-    "produces": [
-        "application/json"
-    ],
-    "definitions": {
+    "definitions":{
         "Usuario": {
             "type": "object",
-            "properties": {
-                "id": {
+            "properties":{
+                "id" :{
                     "type": "number",
-                    "description": "Codigo que permite identificar al usuario"
+                    "description" : "Codigo que permite identificar al usuario"
                 },
-                "nombre": {
+                
+                "nombre" :{
                     "type": "string",
-                    "description": "Nombre del usuario"
+                    "description" : "Nombre del usuario"
                 },
-                "correo": {
+
+                "correo" :{
                     "type": "string",
-                    "description": "Correo del usuario"
+                    "description" : "Correo del usuario"
                 },
-                "contrasena": {
+                "contrasena" :{
                     "type": "string",
-                    "description": "Contrasena del usuario"
+                    "description" : "Contrasena del usuario"
                 }
+
             }
         },
-        "Usuarios": {
-            "type": "array",
-            "items": {
+        
+        "Usuarios" :{
+            "type":"array",
+            "items":{
                 "$ref": "#/definitions/Usuario"
             }
         },
-        "NuevoUsuario": {
+        "NuevoUsuario":{
             "type": "object",
-            "properties": {
-                "nombre": {
+            "properties":{
+                "nombre" :{
                     "type": "string",
-                    "description": "Nombre del usuario"
+                    "description" : "Nombre del usuario"
                 },
-                "correo": {
+
+                "correo" :{
                     "type": "string",
-                    "description": "Correo del usuario"
+                    "description" : "Correo del usuario"
                 },
-                "contrasena": {
+
+                "contrasena" :{
                     "type": "string",
-                    "description": "Contrasena del usuario"
+                    "description" : "Contrasena del usuario"
                 }
+
             }
         },
         "Empresa": {
             "type": "object",
-            "properties": {
-                "id_empresa": {
+            "properties":{
+                "id_empresa" :{
                     "type": "number",
-                    "description": "Codigo que permite identificar a la empresa"
+                    "description" : "Codigo que permite identificar a la empresa"
                 },
-                "nombre_empresa": {
+                
+                "nombre_empresa" :{
                     "type": "string",
-                    "description": "Nombre de la empresa"
+                    "description" : "Nombre de la empresa"
                 },
-                "direccion": {
-                    "type": "string",
-                    "description": "Codigo que permite sabe la dirrecion de una empresa"
+
+                "direccion":{
+                    "type":"string",
+                    "description":"Codigo que permite sabe la dirrecion de una empresa"
+
                 },
-                "telefono": {
-                    "type": "number",
-                    "description": "Este codigo permite saber el numero de telefono de la empresa"
+                "telefono":{
+                    "type":"number",
+                    "description":"Este codigo permite saber el numero de telefono de la empresa"
+
                 },
-                "responsable": {
+                "responsable":{
                     "type": "string",
                     "description": "Este codigo permite saber el responsable de la empresa"
+
                 }
             }
         },
-        "Empresas": {
-            "type": "array",
-            "items": {
+        
+        "Empresas" :{
+            "type":"array",
+            "items":{
                 "$ref": "#/definitions/Empresa"
             }
         },
-        "NuevaEmpresa": {
+        "NuevaEmpresa":{
             "type": "object",
-            "properties": {
-                "nombre_empresa": {
+            "properties":{
+                
+                "nombre_empresa" :{
                     "type": "string",
-                    "description": "Nombre de la empresa"
+                    "description" : "Nombre de la empresa"
                 },
-                "direccion": {
-                    "type": "string",
-                    "description": "Codigo que permite sabe la dirrecion de una empresa"
+
+                "direccion":{
+                    "type":"string",
+                    "description":"Codigo que permite sabe la dirrecion de una empresa"
+
                 },
-                "telefono": {
-                    "type": "number",
-                    "description": "Este codigo permite saber el numero de telefono de la empresa"
+                "telefono":{
+                    "type":"number",
+                    "description":"Este codigo permite saber el numero de telefono de la empresa"
+
                 },
-                "responsable": {
+                "responsable":{
                     "type": "string",
                     "description": "Este codigo permite saber el responsable de la empresa"
+
                 }
             }
         },
         "Inventario": {
             "type": "object",
-            "properties": {
-                "": {
+            "properties":{
+                "" :{
                     "nombre_producto": "number",
-                    "description": "Codigo que permite identificar al nombre del producto"
+                    "description" : "Codigo que permite identificar al nombre del producto"
                 },
-                "stock": {
+                
+                "stock" :{
                     "type": "number",
-                    "description": "Cantidad"
+                    "description" : "Cantidad"
                 }
             }
-        }
-    },
-    "NuevoInventario": {
-        "type": "object",
-        "properties": {
-            "nombre_producto": {
-                "type": "string",
-                "description": "Nombre del inventario"
-            },
-            "stock": {
-                "type": "int",
-                "description": "Cantidad de productos"
+
             }
-        }
-    },
-    "Platicas": {
-        "type": "object",
-        "properties": {
-            "": {
-                "id_platica": "number",
-                "description": "Codigo que permite identificar al lider de la platica"
-            },
-            "id_usuario": {
-                "type": "number",
-                "description": "Codigo del id del usuario"
-            },
-            "horario": {
-                "type": "number",
-                "description": "Horario que se hara la platica"
+        },
+        "NuevoInventario":{
+            "type": "object",
+            "properties":{
+                
+                "nombre_producto" :{
+                    "type": "string",
+                    "description" : "Nombre del inventario"
+                },
+
+                "stock":{
+                    "type":"int",
+                    "description":"Cantidad de productos"
+
+                }
             }
-        }
-    },
-    "NuevoPlaticas": {
-        "type": "object",
-        "properties": {
-            "id_platica": {
-                "type": "text",
-                "description": "Nombre del nuevo id "
-            },
-            "id_usuario": {
-                "type": "text",
-                "description": "identificador del usuario"
-            },
-            "horario": {
-                "type": "int",
-                "description": "Cambio de horario"
+        },
+        "Platicas": {
+            "type": "object",
+            "properties":{
+                "" :{
+                    "id_platica": "number",
+                    "description" : "Codigo que permite identificar al lider de la platica"
+                },
+                
+                "id_usuario" :{
+                    "type": "number",
+                    "description" : "Codigo del id del usuario"
+                },
+                "horario":{
+                    "type":"number",
+                    "description": "Horario que se hara la platica"
+                }
             }
-        }
-    },
-    "Venta": {
-        "type": "object",
-        "properties": {
-            "": {
-                "cantidad": "int",
-                "description": "numero de productos"
+
             },
-            "numeroVenta": {
-                "type": "int",
-                "description": "numero de venta"
-            },
-            "precio": {
-                "type": "int",
-                "description": "$$"
-            },
-            "puntos": {
-                "type": "int",
-                "description": "los puntos que dara omnilife"
+        
+        "NuevoPlaticas":{
+            "type": "object",
+            "properties":{
+                
+                "id_platica" :{
+                    "type": "text",
+                    "description" : "Nombre del nuevo id "
+                },
+
+                "id_usuario":{
+                    "type":"text",
+                    "description":"identificador del usuario"
+
+                },
+                "horario":{
+                    "type":"int",
+                    "description":"Cambio de horario"
+
+                }
             }
-        }
-    },
-    "NuevaVenta": {
-        "type": "object",
-        "properties": {
-            "cantidad": {
-                "type": "int",
-                "description": "Cantidad de  productos "
-            },
-            "numeroVenta": {
-                "type": "int",
-                "description": "Numero de venta"
-            },
-            "precio": {
-                "type": "int",
-                "description": "$$"
-            },
-            "puntos": {
-                "type": "int",
-                "description": "puntos que te da la empresa por comprar ese articulo"
+        },
+        
+        "Venta": {
+            "type": "object",
+            "properties":{
+                "" :{
+                    "cantidad": "int",
+                    "description" : "numero de productos"
+                },
+                
+                "numeroVenta" :{
+                    "type": "int",
+                    "description" : "numero de venta"
+                },
+                "precio":{
+                    "type":"int",
+                    "description": "$$"
+                },
+                "puntos":{
+                    "type":"int",
+                    "description": "los puntos que dara omnilife"
             }
-        }
-    },
-    "Red": {
-        "type": "object",
-        "properties": {
-            "": {
-                "Nombre": "text",
-                "description": "Nombre de la red (persona)"
-            },
-            "PuntosRed": {
-                "type": "int",
-                "description": "numero de puntos acumulados"
-            },
-            "quincena": {
-                "type": "int",
-                "description": "$$ (dinero conseguido)"
             }
-        }
-    },
-    "NuevaRed": {
-        "type": "object",
-        "properties": {
-            "nombre": {
-                "type": "text",
-                "description": "Nomvbre de la persona (red)"
             },
-            "PuntosRed": {
-                "type": "int",
-                "description": "Puntos conseguidos"
-            },
-            "Quincena": {
-                "type": "int",
-                "description": "$$"
+
+        "NuevaVenta":{
+            "type": "object",
+            "properties":{
+                
+                "cantidad" :{
+                    "type": "int",
+                    "description" : "Cantidad de  productos "
+                },
+
+                "numeroVenta":{
+                    "type":"int",
+                    "description":"Numero de venta"
+
+                },
+                "precio":{
+                    "type":"int",
+                    "description":"$$"
+
+                },
+                "puntos":{
+                    "type":"int",
+                    "description":"puntos que te da la empresa por comprar ese articulo"
+                }
             }
-        }
-    },
-    "paths": {
-        "/api/usuarios/mostrarTodosUsuarios/": {
+        },
+        "Red": {
+            "type": "object",
+            "properties":{
+                "" :{
+                    "Nombre": "text",
+                    "description" : "Nombre de la red (persona)"
+                },
+                
+                "PuntosRed" :{
+                    "type": "int",
+                    "description" : "numero de puntos acumulados"
+                },
+                "quincena":{
+                    "type":"int",
+                    "description": "$$ (dinero conseguido)"
+                }
+        
+            }
+            },
+
+        "NuevaRed":{
+            "type": "object",
+            "properties":{
+                
+                "nombre" :{
+                    "type": "text",
+                    "description" : "Nomvbre de la persona (red)"
+                },
+
+                "PuntosRed":{
+                    "type":"int",
+                    "description":"Puntos conseguidos"
+
+                },
+                "Quincena":{
+                    "type":"int",
+                    "description":"$$"
+
+                }
+            }
+        },
+    "paths":{
+        "/api/usuarios/mostrarTodosUsuarios/":{
             "get": {
                 "tags": ["Usuarios"],
                 "summary": "Listado de todos los usuarios que existen en el omnilife2.0.",
                 "description": "<p>Servicio que devuelve la información detallada de todos los usuarios que existen en el omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los usuarios existentes en el omnilife1.0?</strong></em></p>",
                 "responses": {
-                    "200": {
+                    "200":{
                         "description": "OK",
-                        "examples": {
+                        "examples": {      
                             "application/json": [
+                                
                                 {
                                     "id": 4,
                                     "nombre": "Angel Cruz",
@@ -298,55 +343,61 @@
                                     "id_Rol": 4,
                                     "contrasena": "789*"
                                 }
+                                
                             ]
                         },
-                        "schema": {
+                        "schema":{
                             "$ref": "#/definitions/Usuarios"
                         }
                     },
-                    "403": {
+                    "403":{
                         "description": "Prohibido"
                     }
                 }
             }
         },
-        "/api/Usuarios/crearUsuario": {
-            "post": {
-                "summary": "Creando un usuario",
+        "/api/Usuarios/crearUsuario":{
+            "post":
+            {
+                "summary" : "Creando un usuario",
                 "operationId": "create",
-                "produces": ["application/json"],
+                "produces" : ["application/json"],
                 "parameters": [
                     {
-                        "name": "Usuario",
+                        "name" : "Usuario",
                         "in": "body",
-                        "description": "Usuario agregado",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevoUsuario"
+                        "description" :"Usuario agregado",
+                        "required" : true,
+                        "schema" : {
+                            "$ref" : "#/definitions/NuevoUsuario"
                         }
                     }
                 ],
-                "tags": ["Usuarios"],
-                "responses": {
-                    "200": {
-                        "description": "Insertado con exito"
+
+                "tags" : ["Usuarios"],
+                
+                "responses" : {
+                    "200" :{
+                        "description" : "Insertado con exito"
                     },
-                    "403": {
-                        "description": "Prohibido"
+                    "403" : {
+                        "description" : "Prohibido"
                     }
                 }
+
             }
         },
-        "/api/usuarios/obtenerUsuario/{id}": {
+        "/api/usuarios/obtenerUsuario/{id}":{
             "get": {
                 "tags": ["Usuarios"],
                 "summary": "Informacion asociada al usuario, si es que existe en el omnilife1.0",
                 "description": "<p>Servicio que devuelve la información detallada del usuarios soliciado</p><p>&nbsp;</p><p><em><strong>¿Cuál es del usuario de este id?</strong></em></p>",
                 "responses": {
-                    "200": {
+                    "200":{
                         "description": "OK",
-                        "examples": {
+                        "examples": {      
                             "application/json": [
+                                
                                 {
                                     "id": 4,
                                     "nombre": "Angel Cruz",
@@ -354,99 +405,106 @@
                                     "id_Rol": 4,
                                     "contrasena": "789*"
                                 }
+                                
                             ]
                         },
-                        "schema": {
+                        "schema":{
                             "$ref": "#/definitions/Usuario"
                         }
                     },
-                    "403": {
+                    "403":{
                         "description": "Prohibido"
                     }
                 },
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador del usuario",
-                        "type": "number",
-                        "default": "4"
-                    }
-                ]
+                "parameters":[              
+                    {                          
+                        "name" : "id",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "identificador del usuario",
+                        "type" : "number", 
+                        "default" : "4"
+
+                    } ]
             }
         },
-        "/api/usuarios/actualizarUsuario/{id}": {
+        "/api/usuarios/actualizarUsuario/{id}":{
             "put": {
                 "summary": "Actualizar la informaciòn del usuario del omnilife1.0",
                 "description": "<p>Servicio que permite editar la informaciòn del usuario de omnilife1.0, dado el id el mismo </p><p>&nbsp;</p>",
-                "operationId": "update",
-                "consumes": ["application/json"],
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador del usuario",
-                        "type": "number",
-                        "default": "4"
+                "operationId" : "update",
+                "consumes" : ["application/json" ],
+                "produces" : ["application/json" ],
+                
+                "parameters":[              
+                    {                          
+                        "name" : "id",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "identificador del usuario",
+                        "type" : "number", 
+                        "default" : "4"
+
                     },
                     {
-                        "name": "Usuario",
-                        "in": "body",
-                        "description": "Nombre del usuario",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevoUsuario"
+                        "name" : "Usuario",
+                        "in" : "body",
+                        "description" : "Nombre del usuario",
+                        "required" : true,
+                        "schema" : {
+                            "$ref" : "#/definitions/NuevoUsuario"
                         }
+                        
                     }
+                
                 ],
-                "tags": ["Usuarios"],
+                "tags" :["Usuarios"],
                 "responses": {
-                    "200": {
+                    "200":{
                         "description": "OK"
-                    },
-                    "403": {
+                    },   
+                    "403":{
                         "description": "Prohibido"
                     }
                 }
             }
         },
-        "/api/usuarios/eliminarUsuario/{id}": {
+        "/api/usuarios/eliminarUsuario/{id}":{
             "delete": {
                 "tags": ["Usuarios"],
                 "summary": "Eliminar el usuario del omnilife1.0 dado su identificador",
                 "description": "<p>Servicio que elimina el usuario dado el identificador enviado</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
                 "responses": {
-                    "200": {
+                    "200":{
                         "description": "OK"
-                    },
-                    "403": {
+                    },   
+                    "403":{
                         "description": "Prohibido"
                     }
                 },
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador del usuario",
-                        "type": "number",
-                        "default": "8"
-                    }
-                ]
+                "parameters":[              
+                    {                          
+                        "name" : "id",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "identificador del usuario",
+                        "type" : "number", 
+                        "default" : "8"
+
+                    } ]
             }
         },
-        "/api/empresas/MostrarTodasEmpresas/": {
+       
+
+        "/api/empresas/MostrarTodasEmpresas/":{
             "get": {
                 "tags": [
                     "Empresas"
                 ],
                 "summary": "Listado de todas las empresas que existen en el omnilife2_0.",
                 "description": "<p>Servicio que devuelve la información detallada de todas las empresas que existen en el omnilife1.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las empresas existentes en el omnilife1.0?</strong></em></p>",
-                "responses": {
-                    "200": {
+                    "responses": {
+                    "200":{
                         "description": "OK",
                         "examples": {
                             "application/json": [
@@ -458,515 +516,578 @@
                                     "telefono": "2132",
                                     "responsable": "ninguno"
                                 }
+                                
                             ]
                         },
-                        "schema": {
+                        "schema":{
                             "$ref": "#/definitions/Empresas"
                         }
                     },
-                    "403": {
+                    "403":{
                         "description": "Prohibido"
                     }
                 }
             }
         },
-        "/api/empresas/crearEmpresa": {
-            "post": {
-                "summary": "Creando una empresa",
+        "/api/empresas/crearEmpresa":{
+            "post":
+            {
+                "summary" : "Creando una empresa",
                 "operationId": "create",
-                "produces": ["application/json"],
+                "produces":["application/json"],
                 "parameters": [
                     {
-                        "name": "Empresa",
+                        "name" : "Empresa",
                         "in": "body",
-                        "description": "Empresa agregada",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevaEmpresa"
+                        "description" :"Empresa agregada",
+                        "required" : true,
+                        "schema" : {
+                            "$ref" : "#/definitions/NuevaEmpresa"
                         }
                     }
                 ],
-                "tags": ["Empresas"],
-                "responses": {
-                    "200": {
-                        "description": "Insertado con exito"
+
+                "tags" : ["Empresas"],
+                
+                "responses" : {
+                    "200" :{
+                        "description" : "Insertado con exito"
                     },
-                    "403": {
-                        "description": "Prohibido"
+                    "403" : {
+                        "description" : "Prohibido"
                     }
                 }
+
             }
         },
-        "/api/inventario/MostrarTodasinventarios/": {
-            "get": {
-                "tags": ["Inventarios"],
-                "summary": "Listado de todo el inventario que existen en el omnilife2.0.",
-                "description": "<p>Servicio que devuelve la información detallada del inventario  que solo existen en el omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los usuarios existentes en el omnilife1.0?</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "examples": {
-                            "application/json": [
-                                {
-                                    "nombre_producto": "one plus",
-                                    "strock": "50"
-                                }
-                            ]
+   
+            "/api/inventario/MostrarTodasinventarios/":{
+                "get": {
+                    "tags": ["Inventarios"],
+                    "summary": "Listado de todo el inventario que existen en el omnilife2.0.",
+                    "description": "<p>Servicio que devuelve la información detallada del inventario  que solo existen en el omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los usuarios existentes en el omnilife1.0?</strong></em></p>",
+                    "responses": {
+                        "200":{
+                            "description": "OK",
+                            "examples": {      
+                                "application/json": [
+                                    
+                                    {
+                                        "nombre_producto": "one plus",
+                                        "strock": "50"
+                                        
+                                    } 
+                                ]
+                            },
+                            "schema":{
+                                "$ref": "#/definitions/Inventario"
+                            }
                         },
-                        "schema": {
-                            "$ref": "#/definitions/Inventario"
-                        }
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
-                }
-            }
-        },
-        "/api/inventario/createInventario": {
-            "post": {
-                "summary": "Creando un nuevo inventario (anaquel de productos)",
-                "operationId": "create",
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "Inventarios",
-                        "in": "body",
-                        "description": "Anaquel creado",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevoInventario"
+                        "403":{
+                            "description": "Prohibido"
                         }
                     }
-                ],
-                "tags": ["Inventarios"],
-                "responses": {
-                    "200": {
-                        "description": "Insertado con exito"
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
                 }
-            }
-        },
-        "/api/inventario/actualizarInventario/{stock}": {
-            "put": {
-                "summary": "Actualizar la informaciòn del  inventario de omnilife2.0",
-                "description": "<p>Servicio que permite editar la informaciòn del inventario de omnilife2.0, dado el id el mismo </p><p>&nbsp;</p>",
-                "operationId": "update",
-                "consumes": ["application/json"],
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "stock",
-                        "in": "path",
-                        "required": true,
-                        "description": "stock",
-                        "type": "number",
-                        "default": "50"
-                    },
-                    {
-                        "name": "Inventario",
-                        "in": "body",
-                        "description": "Nombre del stock",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Inventarios"
+            },
+            
+            "/api/inventario/createInventario":{
+                "post":
+                {
+                    "summary" : "Creando un nuevo inventario (anaquel de productos)",
+                    "operationId": "create",
+                    "produces" : ["application/json"],
+                    "parameters": [
+                        {
+                            "name" : "Inventarios",
+                            "in": "body",
+                            "description" :"Anaquel creado",
+                            "required" : true,
+                            "schema" : {
+                                "$ref" : "#/definitions/NuevoInventario"
+                            }
+                        }
+                    ],
+    
+                    "tags" : ["Inventarios"],
+                    
+                    "responses" : {
+                        "200" :{
+                            "description" : "Insertado con exito"
+                        },
+                        "403" : {
+                            "description" : "Prohibido"
                         }
                     }
-                ],
-                "tags": ["Inventarios"],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "403": {
-                        "description": "Prohibido"
+    
+                }
+            },
+     "/api/inventario/actualizarInventario/{stock}":{
+                "put": {
+                    "summary": "Actualizar la informaciòn del  inventario de omnilife2.0",
+                    "description": "<p>Servicio que permite editar la informaciòn del inventario de omnilife2.0, dado el id el mismo </p><p>&nbsp;</p>",
+                    "operationId" : "update",
+                    "consumes" : ["application/json" ],
+                    "produces" : ["application/json" ],
+                    
+                    "parameters":[              
+                        {                          
+                            "name" : "stock",
+                            "in" : "path",
+                            "required" : true,
+                            "description" : "stock",
+                            "type" : "number", 
+                            "default" : "50"
+    
+                        },
+                        {
+                            "name" : "Inventario",
+                            "in" : "body",
+                            "description" : "Nombre del stock",
+                            "required" : true,
+                            "schema" : {
+                                "$ref" : "#/definitions/Inventarios"
+                            }
+                            
+                        }
+                    
+                    ],
+                    "tags" :["Inventarios"],
+                    "responses": {
+                        "200":{
+                            "description": "OK"
+                        },   
+                        "403":{
+                            "description": "Prohibido"
+                        }
                     }
                 }
-            }
-        },
-        "/api/inventario/eliminarInventario/{stock}": {
-            "delete": {
-                "tags": ["Inventarios"],
-                "summary": "Eliminar el stock de omnilife2.0 dado su identificador que es stock",
-                "description": "<p>Servicio que elimina el stock dado el identificador enviado</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK"
+            },
+            "/api/inventario/eliminarInventario/{stock}":{
+                "delete": {
+                    "tags": ["Inventarios"],
+                    "summary": "Eliminar el stock de omnilife2.0 dado su identificador que es stock",
+                    "description": "<p>Servicio que elimina el stock dado el identificador enviado</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
+                    "responses": {
+                        "200":{
+                            "description": "OK"
+                        },   
+                        "403":{
+                            "description": "Prohibido"
+                        }
                     },
-                    "403": {
-                        "description": "Prohibido"
+                    "parameters":[              
+                        {                          
+                            "name" : "stock",
+                            "in" : "path",
+                            "required" : true,
+                            "description" : "identificador del inventario",
+                            "type" : "number"
+    
+                        } ]
+                }
+            },
+
+    "/api/platicas/mostrarTodosPlaticas/":{
+        "get": {
+            "tags": ["Platicas"],
+            "summary": "Listado de todas las platicas ya programadas y que existen en el omnilife2.0.",
+            "description": "<p>Servicio que devuelve la información detallada de las platicas programadas  que existen en omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las platicas existentes de Omnilife2.0</strong></em></p>",
+            "responses": {
+                "200":{
+                    "description": "OK",
+                    "examples": {      
+                        "application/json": [
+                            
+                            {
+                                "id_usuario": 1,
+                                "id_platica": 7,
+                                "horario": 1600
+                            }
+                            
+                        ]
+                    },
+                    "schema":{
+                        "$ref": "#/definitions/Platicas"
                     }
                 },
-                "parameters": [
-                    {
-                        "name": "stock",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador del inventario",
-                        "type": "number"
-                    }
-                ]
-            }
-        },
-        "/api/platicas/mostrarTodosPlaticas/": {
-            "get": {
-                "tags": ["Platicas"],
-                "summary": "Listado de todas las platicas ya programadas y que existen en el omnilife2.0.",
-                "description": "<p>Servicio que devuelve la información detallada de las platicas programadas  que existen en omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las platicas existentes de Omnilife2.0</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "examples": {
-                            "application/json": [
-                                {
-                                    "id_usuario": 1,
-                                    "id_platica": 7,
-                                    "horario": 1600
-                                }
-                            ]
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/Platicas"
-                        }
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
+                "403":{
+                    "description": "Prohibido"
                 }
             }
-        },
-        "/api/Platica/crearPlatica": {
-            "post": {
-                "summary": "Creando una nueva platica",
-                "operationId": "create",
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "id_platica": "Platica",
-                        "id_usuario": "body",
-                        "description": "Platica agregado y programada",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevoPlaticas"
-                        }
-                    }
-                ],
-                "tags": ["Platicas"],
-                "responses": {
-                    "200": {
-                        "description": "Insertado con exito"
-                    },
-                    "403": {
-                        "description": "Prohibido"
+        }
+    },
+    "/api/Platica/crearPlatica":{
+        "post":
+        {
+            "summary" : "Creando una nueva platica",
+            "operationId": "create",
+            "produces" : ["application/json"],
+            "parameters": [
+                {
+                    "id_platica" : "Platica",
+                    "id_usuario": "body",
+                    "description" :"Platica agregado y programada",
+                    "required" : true,
+                    "schema" : {
+                        "$ref" : "#/definitions/NuevoPlaticas"
                     }
                 }
-            }
-        },
-        "/api/platicas/actualizarPlatica/{id_platica,horario}": {
-            "put": {
-                "summary": "Actualizar la informaciòn de la platica del omnilife1.0",
-                "description": "<p>Servicio que permite editar la informaciòn de la platica de omnilife1.0, dado el id el mismo </p><p>&nbsp;</p>",
-                "operationId": "update",
-                "consumes": ["application/json"],
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "id_platica",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador de la platica",
-                        "type": "number"
-                    },
-                    {
-                        "name": "horario",
-                        "in": "body",
-                        "description": "Horario",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevoPlaticas"
-                        }
-                    }
-                ],
-                "tags": ["Platicas"],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
+            ],
+
+            "tags" : ["Platicas"],
+            
+            "responses" : {
+                "200" :{
+                    "description" : "Insertado con exito"
+                },
+                "403" : {
+                    "description" : "Prohibido"
                 }
             }
-        },
-        "/api/usuarios/eliminarPlatica/{id_platica}": {
-            "delete": {
-                "tags": ["Platicas"],
-                "summary": "Eliminar la platica de omnilife2.0 dado su identificador",
-                "description": "<p>Servicio que elimina la platica dado el identificador enviado</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK"
+
+        }
+    },
+    
+    "/api/platicas/actualizarPlatica/{id_platica,horario}":{
+        "put": {
+            "summary": "Actualizar la informaciòn de la platica del omnilife1.0",
+            "description": "<p>Servicio que permite editar la informaciòn de la platica de omnilife1.0, dado el id el mismo </p><p>&nbsp;</p>",
+            "operationId" : "update",
+            "consumes" : ["application/json" ],
+            "produces" : ["application/json" ],
+            
+            "parameters":[              
+                {                          
+                    "name" : "id_platica",
+                    "in" : "path",
+                    "required" : true,
+                    "description" : "identificador de la platica",
+                    "type" : "number"
+
+                },
+                {
+                    "name" : "horario",
+                    "in" : "body",
+                    "description" : "Horario",
+                    "required" : true,
+                    "schema" : {
+                        "$ref" : "#/definitions/NuevoPlaticas"
+                    }
+                    
+                }
+            
+            ],
+            "tags" :["Platicas"],
+            "responses": {
+                "200":{
+                    "description": "OK"
+                },   
+                "403":{
+                    "description": "Prohibido"
+                }
+            }
+        }
+    },
+    "/api/usuarios/eliminarPlatica/{id_platica}":{
+        "delete": {
+            "tags": ["Platicas"],
+            "summary": "Eliminar la platica de omnilife2.0 dado su identificador",
+            "description": "<p>Servicio que elimina la platica dado el identificador enviado</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
+            "responses": {
+                "200":{
+                    "description": "OK"
+                },   
+                "403":{
+                    "description": "Prohibido"
+                }
+            },
+            "parameters":[              
+                {                          
+                    "name" : "id_platica",
+                    "in" : "path",
+                    "required" : true,
+                    "description" : "identificador de la platica",
+                    "type" : "number"
+
+                } ]
+        }
+    },
+               
+    
+
+    "/api/ventas/MostrarTodasventa/":{
+        "get": {
+            "tags": ["Ventas"],
+            "summary": "Listado de todas las ventas que existen en el omnilife2.0.",
+            "description": "<p>Servicio que devuelve la información detallada de todos las ventas que existen en el omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las ventas existentes en el omnilife2.0?</strong></em></p>",
+            "responses": {
+                "200":{
+                    "description": "OK",
+                    "examples": {      
+                        "application/json": [
+                            
+                            {
+                                "Cantidad": 1,
+                                "numeroVenta": "20",
+                                "precio": "19",
+                                "puntos": 5
+                                
+                            }
+                            
+                        ]
                     },
-                    "403": {
-                        "description": "Prohibido"
+                    "schema":{
+                        "$ref": "#/definitions/Venta"
                     }
                 },
-                "parameters": [
-                    {
-                        "name": "id_platica",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador de la platica",
-                        "type": "number"
-                    }
-                ]
-            }
-        },
-        "/api/ventas/MostrarTodasventa/": {
-            "get": {
-                "tags": ["Ventas"],
-                "summary": "Listado de todas las ventas que existen en el omnilife2.0.",
-                "description": "<p>Servicio que devuelve la información detallada de todos las ventas que existen en el omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las ventas existentes en el omnilife2.0?</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "examples": {
-                            "application/json": [
-                                {
-                                    "Cantidad": 1,
-                                    "numeroVenta": "20",
-                                    "precio": "19",
-                                    "puntos": 5
-                                }
-                            ]
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/Venta"
-                        }
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
+                "403":{
+                    "description": "Prohibido"
                 }
             }
-        },
-        "/api/ventas/crearVenta": {
-            "post": {
-                "summary": "Creando una venta",
-                "operationId": "create",
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "Venta",
-                        "in": "body",
-                        "description": "Venta agregado",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevaVenta"
-                        }
-                    }
-                ],
-                "tags": ["Ventas"],
-                "responses": {
-                    "200": {
-                        "description": "Insertado con exito"
-                    },
-                    "403": {
-                        "description": "Prohibido"
+        }
+    },
+    "/api/ventas/crearVenta":{
+        "post":
+        {
+            "summary" : "Creando una venta",
+            "operationId": "create",
+            "produces" : ["application/json"],
+            "parameters": [
+                {
+                    "name" : "Venta",
+                    "in": "body",
+                    "description" :"Venta agregado",
+                    "required" : true,
+                    "schema" : {
+                        "$ref" : "#/definitions/NuevaVenta"
                     }
                 }
-            }
-        },
-        "/api/venta/actualizarVenta/{precio,cantidad,puntos}": {
-            "put": {
-                "summary": "Actualizar la informaciòn de la venta del omnilife2.0",
-                "description": "<p>Servicio que permite editar la informaciòn de la venta realizada dando los mismos datos </p><p>&nbsp;</p>",
-                "operationId": "update",
-                "consumes": ["application/json"],
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "precio",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador del precio",
-                        "type": "int"
-                    },
-                    {
-                        "name": "cantidad",
-                        "in": "body",
-                        "description": "Cantidad de productos",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevaVenta"
-                        }
-                    },
-                    {
-                        "name": "puntos",
-                        "in": "path",
-                        "required": true,
-                        "description": "precios",
-                        "type": "int"
-                    }
-                ],
-                "tags": ["Ventas"],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
-                }
-            }
-        },
-        "/api/ventas/eliminarVenta/{numeroVenta}": {
-            "delete": {
-                "tags": ["Ventas"],
-                "summary": "Eliminar la venta del omnilife2.0 ",
-                "description": "<p>Servicio que elimina la venta dado el identificador de numero de venta</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
+            ],
+
+            "tags" : ["Ventas"],
+            
+            "responses" : {
+                "200" :{
+                    "description" : "Insertado con exito"
                 },
-                "parameters": [
-                    {
-                        "name": "numeroVenta",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador de venta",
-                        "type": "int"
-                    }
-                ]
-            }
-        },
-        "/api/red/MostrarTodasred/": {
-            "get": {
-                "tags": ["Red"],
-                "summary": "Listado de todas las redes que existen en el omnilife2.0.",
-                "description": "<p>Servicio que devuelve la información detallada de todos las redes que existen en el omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las redes existentes en el omnilife2.0?</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "examples": {
-                            "application/json": [
-                                {
-                                    "Nombre": "Ali Edahi Garcia Martinez ",
-                                    "PuntosRed": "500",
-                                    "Quincena": "mil ochoscientos cincuenta pesos"
-                                }
-                            ]
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/Red"
-                        }
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
+                "403" : {
+                    "description" : "Prohibido"
                 }
             }
-        },
-        "/api/red/createRed": {
-            "post": {
-                "summary": "Creando una rama de red",
-                "operationId": "create",
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "Red",
-                        "in": "body",
-                        "description": "Red agregado",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevaRed"
-                        }
-                    }
-                ],
-                "tags": ["Red"],
-                "responses": {
-                    "200": {
-                        "description": "Insertado con exito"
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
-                }
-            }
-        },
-        "/api/red/actualizarRed/{nombre}": {
-            "put": {
-                "summary": "Actualizar la informaciòn de la red del omnilife2.0",
-                "description": "<p>Servicio que permite editar la informaciòn de la red realizada dando los mismos datos </p><p>&nbsp;</p>",
-                "operationId": "update",
-                "consumes": ["application/json"],
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "nombre",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador del nombre",
-                        "type": "text"
-                    },
-                    {
-                        "name": "quincena",
-                        "in": "body",
-                        "description": "Cantidad de $$$",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NuevaRed"
-                        }
-                    },
-                    {
-                        "name": "PuntosRed",
-                        "in": "path",
-                        "required": true,
-                        "description": "puntos como red",
-                        "type": "int"
-                    }
-                ],
-                "tags": ["Red"],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
-                }
-            }
-        },
-        "/api/red/eliminarRed/{Nombre}": {
-            "delete": {
-                "tags": ["Red"],
-                "summary": "Eliminar la red del omnilife2.0 ",
-                "description": "<p>Servicio que elimina la red dado el identificador de numero de venta</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "403": {
-                        "description": "Prohibido"
-                    }
+
+        }
+    },
+        "/api/venta/actualizarVenta/{precio,cantidad,puntos}":{
+        "put": {
+            "summary": "Actualizar la informaciòn de la venta del omnilife2.0",
+            "description": "<p>Servicio que permite editar la informaciòn de la venta realizada dando los mismos datos </p><p>&nbsp;</p>",
+            "operationId" : "update",
+            "consumes" : ["application/json" ],
+            "produces" : ["application/json" ],
+            
+            "parameters":[              
+                {                          
+                    "name" : "precio",
+                    "in" : "path",
+                    "required" : true,
+                    "description" : "identificador del precio",
+                    "type" : "int"
+                    
+
                 },
-                "parameters": [
-                    {
-                        "name": "Nombre",
-                        "in": "path",
-                        "required": true,
-                        "description": "identificador de red",
-                        "type": "text"
+                {
+                    "name" : "cantidad",
+                    "in" : "body",
+                    "description" : "Cantidad de productos",
+                    "required" : true,
+                    "schema" : {
+                        "$ref" : "#/definitions/NuevaVenta"
                     }
-                ]
+                    
+                },
+                {                          
+                    "name" : "puntos",
+                    "in" : "path",
+                    "required" : true,
+                    "description" : "precios",
+                    "type" : "int"
+                    
+
+                }
+            
+            ],
+            "tags" :["Ventas"],
+            "responses": {
+                "200":{
+                    "description": "OK"
+                },   
+                "403":{
+                    "description": "Prohibido"
+                }
+            }
+        }
+    },
+    "/api/ventas/eliminarVenta/{numeroVenta}":{
+        "delete": {
+            "tags": ["Ventas"],
+            "summary": "Eliminar la venta del omnilife2.0 ",
+            "description": "<p>Servicio que elimina la venta dado el identificador de numero de venta</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
+            "responses": {
+                "200":{
+                    "description": "OK"
+                },   
+                "403":{
+                    "description": "Prohibido"
+                }
+            },
+            "parameters":[              
+                {                          
+                    "name" : "numeroVenta",
+                    "in" : "path",
+                    "required" : true,
+                    "description" : "identificador de venta",
+                    "type" : "int"
+
+                } ]
+        }
+    },
+
+            "/api/red/MostrarTodasred/":{
+                "get": {
+                    "tags": ["Red"],
+                    "summary": "Listado de todas las redes que existen en el omnilife2.0.",
+                    "description": "<p>Servicio que devuelve la información detallada de todos las redes que existen en el omnilife2.0.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las redes existentes en el omnilife2.0?</strong></em></p>",
+                    "responses": {
+                        "200":{
+                            "description": "OK",
+                            "examples": {      
+                                "application/json": [
+                                    
+                                    {
+                                        "Nombre": "Ali Edahi Garcia Martinez ",
+                                        "PuntosRed": "500",
+                                        "Quincena": "mil ochoscientos cincuenta pesos"
+                                       
+                                        
+                                    }
+                                    
+                                ]
+                            },
+                            "schema":{
+                                "$ref": "#/definitions/Red"
+                            }
+                        },
+                        "403":{
+                            "description": "Prohibido"
+                        }
+                    }
+                }
+            },
+
+            "/api/red/createRed":{
+                "post":
+                {
+                    "summary" : "Creando una rama de red",
+                    "operationId": "create",
+                    "produces" : ["application/json"],
+                    "parameters": [
+                        {
+                            "name" : "Red",
+                            "in": "body",
+                            "description" :"Red agregado",
+                            "required" : true,
+                            "schema" : {
+                                "$ref" : "#/definitions/NuevaRed"
+                            }
+                        }
+                    ],
+        
+                    "tags" : ["Red"],
+                    
+                    "responses" : {
+                        "200" :{
+                            "description" : "Insertado con exito"
+                        },
+                        "403" : {
+                            "description" : "Prohibido"
+                        }
+                    }
+        
+                }
+            },
+                "/api/red/actualizarRed/{nombre}":{
+                "put": {
+                    "summary": "Actualizar la informaciòn de la red del omnilife2.0",
+                    "description": "<p>Servicio que permite editar la informaciòn de la red realizada dando los mismos datos </p><p>&nbsp;</p>",
+                    "operationId" : "update",
+                    "consumes" : ["application/json" ],
+                    "produces" : ["application/json" ],
+                    
+                    "parameters":[              
+                        {                          
+                            "name" : "nombre",
+                            "in" : "path",
+                            "required" : true,
+                            "description" : "identificador del nombre",
+                            "type" : "text"
+                            
+        
+                        },
+                        {
+                            "name" : "quincena",
+                            "in" : "body",
+                            "description" : "Cantidad de $$$",
+                            "required" : true,
+                            "schema" : {
+                                "$ref" : "#/definitions/NuevaRed"
+                            }
+                            
+                        },
+                        {                          
+                            "name" : "PuntosRed",
+                            "in" : "path",
+                            "required" : true,
+                            "description" : "puntos como red",
+                            "type" : "int"
+                            
+        
+                        }
+                    
+                    ],
+                    "tags" :["Red"],
+                    "responses": {
+                        "200":{
+                            "description": "OK"
+                        },   
+                        "403":{
+                            "description": "Prohibido"
+                        }
+                    }
+                }
+            },
+            "/api/red/eliminarRed/{Nombre}":{
+                "delete": {
+                    "tags": ["Red"],
+                    "summary": "Eliminar la red del omnilife2.0 ",
+                    "description": "<p>Servicio que elimina la red dado el identificador de numero de venta</p><p>&nbsp;</p><p><em><strong>¿Fué una ejecución exitoso?</strong></em></p>",
+                    "responses": {
+                        "200":{
+                            "description": "OK"
+                        },   
+                        "403":{
+                            "description": "Prohibido"
+                        }
+                    },
+                    "parameters":[              
+                        {                          
+                            "name" : "Nombre",
+                            "in" : "path",
+                            "required" : true,
+                            "description" : "identificador de red",
+                            "type" : "text"
+        
+                        } ]
+                }
             }
         }
     }
-}
