@@ -6,6 +6,6 @@ exports.default = {
         port: 3306,
         user: 'dbmasteruser',
         password: '9|.zo~tFDA<(bp~HZGb{nor70!&Fjng_',
-        database: 'omnilife2.0'
+        database: 'omnilife'
     }
 };
